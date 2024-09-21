@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WarehouseList from './pages/WarehouseList';
 import WarehouseDetails from './pages/WarehouseDetails';
 import SavedWarehouses from './pages/SavedWarehouses';
-import Recents from './pages/Recents'; // Import Recents page
+import Recents from './pages/Recents';
 import Navbar from './components/Navbar';
 import './App.css';
 
@@ -25,5 +25,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
