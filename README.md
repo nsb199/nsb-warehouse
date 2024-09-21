@@ -61,7 +61,7 @@ npm run dev
 
 ## Hosted Link
 
-You can view the live application here: []
+You can view the live application here: [https://nsb-warehouse.vercel.app/]
 
 ## Usage
 1. Searching for Warehouses:
