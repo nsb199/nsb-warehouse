@@ -1,0 +1,633 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f6e9ca;
+  margin: 0;
+  padding: 11px 50px;
+  box-sizing: border-box;
+  
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 15px 20px;
+  background-color: transparent;
+  position: relative;
+  
+}
+
+.navbar-logo {
+  position: relative; 
+  z-index: 1; 
+  
+}
+
+.navbar-logo img {
+  height: 70px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.1);
+}
+
+.navbar-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Center links horizontally */
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #E87C79;
+  font-weight: 700;
+  position: relative; /* Needed for positioning the ::after pseudo-element */
+  transition: color 0.3s;
+}
+
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px; /* Thickness of the underline */
+  background-color: #E87C79; /* Same color as the text */
+  bottom: -3px; /* Position slightly below the text */
+  left: 0;
+  transition: width 0.3s ease, background-color 0.3s ease; /* Transition for the width */
+}
+
+.navbar-links a:hover::after {
+  width: 100%; /* Full width of the link */
+}
+
+.navbar-links a:hover {
+  color: #e03c31; /* Change color on hover */
+}
+
+.navbar-links a:hover::after {
+  background-color: #e03c31; /* Same as hover color */
+}
+
+
+/* Search Bar Styles */
+
+.navbar .navbar-search input {
+  padding: 8px 12px;
+  outline: none;
+  font-size: 14px;
+  border-radius: 50px !important;
+  border: 2px solid #e56c68 !important;
+  background-color: transparent !important;
+  color: #e56c68 !important;
+  transition: border 0.3s ease-in-out;
+}
+
+.navbar .navbar-search input::placeholder {
+  color: #e56c68 !important;
+}
+
+.navbar .navbar-search input:hover,
+.navbar .navbar-search input:focus {
+  border-color: #e56c68 !important;
+}
+
+
+/* Hamburger icon for mobile */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: #e03c31;
+  cursor: pointer;
+  
+  animation: fadeInUp 0.7s forwards;
+}
+
+/* Side Panel Styles */
+.side-panel {
+  position: fixed;
+  top: 100px;
+  right: -19px;
+  width: 200px;
+  height: 50%;
+  border-radius: 20px;
+  background-color: #E87C79;
+  color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.side-panel.show {
+  transform: translateX(0);
+  right: 11px;
+}
+
+.side-panel .close-btn {
+  font-size: 2rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.side-panel .panel-links {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  justify-content: space-between;
+}
+
+.side-panel .panel-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.side-panel .panel-links a:hover {
+  color: #f6e9ca;
+
+}
+
+
+/* Warehouse List Styles */
+.warehouse-list {
+  padding: 20px;
+}
+.warehouse-list h2 {
+  color: #e56c68;
+  text-align: center;
+  animation: fadeInUp 0.7s forwards;
+}
+
+.warehouse-list p {
+  color: #e56c68;
+  text-align: center;
+  margin-top: 100px;
+  animation: fadeInUp 0.7s forwards;
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  
+  gap: 25px;
+  margin-bottom: 20px;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.filter-container select:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.filter-container select:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.filter-container select:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.filter-container select:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.filter-container select:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.filter-container button:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+
+
+.filter-container select {
+  padding: 12px 20px 12px 12px; 
+  appearance: none; 
+  background-color: #fff; 
+  border: 1px solid #ddd; 
+  border-radius: 50px; 
+  font-size: 12px;
+  cursor: pointer;
+  animation: fadeInUp 0.7s forwards;
+  opacity: 0;
+  color: #e03c31;
+  background: #fdf9f9;
+
+}
+.filter-container select:hover {
+  background: #f3efef;
+}
+
+.filter-container select option {
+  background: #e56c68;
+  border-radius: 20px;
+  color: white;
+  font-weight: bolder;
+}
+
+
+select, input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #E87C79;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  animation: fadeInUp 0.7s forwards;
+  opacity: 0;
+  border: 2px solid white;
+  
+}
+
+button:hover {
+  background-color: #d76b6b;
+  border: 2px solid rgb(243, 218, 218);
+}
+
+
+/* Center everything, add subtle background and styling */
+.warehouse-details-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: transparent;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Image styling for top center placement */
+.warehouse-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0; /* Rounded corners at the top */
+  margin-bottom: 20px;
+}
+
+/* Content section below the image */
+.warehouse-details-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e56c78; /* Theme color */
+  margin-bottom: 20px;
+}
+
+.warehouse-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.warehouse-info p {
+  width: 45%; /* Two-column layout for details */
+  font-size: 1rem;
+  color: #555; /* Subtle font color */
+  margin: 10px 0;
+}
+
+.warehouse-info p strong {
+  color: #e56c78; /* Emphasized text in theme color */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .warehouse-info p {
+    width: 100%; /* Single column on smaller screens */
+  }
+}
+
+.loading {
+  text-align: center;
+  font-size: 24px;
+  color: #e56c78; /* Matching your color scheme */
+  margin: 20px 0;
+}
+
+
+/* Warehouse Grid Styles */
+.warehouse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+  gap: 1rem;
+  animation: fadeIn 1s ease-in-out;
+  padding: 0 20px; 
+  margin: 0 auto; 
+}
+
+@media (min-width: 1520px) {
+  .warehouse-grid {
+    grid-template-columns: repeat(5, 1fr); /* Limit to 5 columns on wider displays */
+    max-width: 1200px; /* Set a max-width for the grid */
+  }
+}
+
+
+.warehouse-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.warehouse-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.warehouse-card p {
+  margin: 5px 0;
+  color: #666;
+}
+.warehouse-card button {
+  margin-right: 5px;
+  margin-top: 7px;
+}
+
+/* Button Styles */
+.view-btn {
+  margin-top: 10px;
+  background-color: #ff4500;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.view-btn:hover {
+  background-color: #e03c31;
+}
+
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Styles for the warehouse card */
+.warehouse-card {
+  border: 1px solid #ccc;
+  padding: 25px;
+  border-radius: 20px;
+  margin: 16px;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.7s forwards;
+}
+
+/* Centralized saved message bubble */
+.saved-message-bubble {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e56c68;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  animation: fadeInOut 1.5s ease-in-out;
+}
+
+/* Animation for fade in and out */
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Responsive Styles */
+@media (max-width: 920px) {
+
+  .navbar-links {
+    display: none; /* Hide links initially */
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    background-color: #E87C79;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 20px;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar-links.show {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .navbar-logo img {
+    height: 50px;
+  }
+
+  .navbar-search input {
+    width: 100%;
+    max-width: 150px;
+  }
+
+  .hamburger {
+    display: block;
+  
+  }
+
+  .filter-container {
+    width: 50%; 
+    margin: 0 auto; 
+    display: grid; /* Change from flex to grid */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 15px; /* Space between items */
+    margin-bottom: 20px;
+  }
+ 
+}
+
+@media (max-width: 671px) {
+
+  .navbar-logo {
+    position: absolute;
+    left: 0; /* Align the logo flush with the left */
+  }
+
+  .navbar-search {
+    position: absolute;
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+  }
+
+  .hamburger {
+    position: absolute;
+    right: 0; 
+  }
+
+ 
+  body {
+    margin-top: 2rem;
+    padding: 0 10px;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .navbar-search {
+    max-width: 70px;
+  }
+
+  .warehouse-grid {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 0; 
+    margin: 0 auto; 
+  }
+
+  
+
+}
+
+
+
+.footer {
+  background-color: rgba(255, 255, 255, 0.9); /* Transparent background */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  color: #333; /* Dark text color for better contrast */
+  padding: 20px;
+  text-align: center;
+  margin: 20px 10px; /* Margin for spacing */
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  max-width: 120px; /* Adjust logo size */
+  margin-bottom: 15px;
+}
+
+.footer-nav {
+  margin: 10px 0;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-nav li {
+  margin: 0 15px;
+}
+
+.footer-nav a {
+  color: #e56c68; /* Custom text color */
+  text-decoration: none; /* No underline */
+  font-weight: 500;
+  transition: color 0.3s; /* Smooth transition */
+}
+
+.footer-nav a:hover {
+  color: #e56c68; /* Maintain color on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 280px) {
+  .footer {
+    padding: 15px; /* Reduced padding for smaller screens */
+  }
+
+  .footer-nav ul {
+    flex-direction: column;
+  }
+
+  .footer-nav li {
+    margin: 8px 0; /* Margin for vertical spacing */
+  }
+}
+
+
+
+
+/* Scrollbar styles for WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Thin width for the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f6e9ca; /* Background of the track */
+  border-radius: 10px; /* Rounded track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e56c68; /* Scrollbar color */
+  border-radius: 10px; /* Rounded corners for scrollbar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #E87C79; /* Darker color when hovering */
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #e56c68 #f6e9ca; /* Thumb and track color */
+}
+
+/* Force the scrollbar to always be visible */
+html {
+  overflow-y: scroll;
+}
+
